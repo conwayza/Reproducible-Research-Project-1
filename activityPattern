@@ -1,0 +1,17 @@
+# Q4 - Are there differences in activity patterns between weekdays and weekends?
+
+## Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+activity.imputed$day <- ifelse(weekdays(as.Date(activity.imputed$date)) == "Saturday" | weekdays(as.Date(activity.imputed$date)) == "Sunday", "weekend", "weekday")
+
+## Make a panel plot containing a time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days
+stepsPerInterval.weekend <- tapply(activity.imputed[activity.imputed$day == "weekend" ,]$steps, activity.imputed[activity.imputed$day == "weekend" ,]$interval, mean, na.rm = TRUE)
+stepsPerInterval.weekday <- tapply(activity.imputed[activity.imputed$day == "weekday" ,]$steps, activity.imputed[activity.imputed$day == "weekday" ,]$interval, mean, na.rm = TRUE)
+
+### Set a 2 panel plot
+par(mfrow=c(1,2))
+
+### Plot weekday activity
+plot(as.numeric(names(stepsPerInterval.weekday)), stepsPerInterval.weekday, xlab="Interval", ylab="Steps", main="Activity Pattern (Weekdays)", type="l")
+
+### Plot weekend activity
+plot(as.numeric(names(stepsPerInterval.weekend)), stepsPerInterval.weekend, xlab="Interval", ylab="Steps", main="Activity Pattern (Weekends)", type="l")
