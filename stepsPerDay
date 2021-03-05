@@ -20,3 +20,5 @@ hist(stepsPerDay, xlab="Number of Steps", main="Histogram: Steps per Day")
 ## Calculate and report the mean and median of the total number of steps taken per day
 meanPerDay <- mean(stepsPerDay, na.rm=TRUE)
 medianPerDay <- median(stepsPerDay, na.rm=TRUE)
+
+The mean and median number of steps per day are 1.076618910^[4] and 10765 
