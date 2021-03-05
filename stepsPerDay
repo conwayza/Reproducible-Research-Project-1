@@ -1,0 +1,16 @@
+## Including all libraries needed 
+library(plyr)
+library(ggplot2)
+library(reshape)
+
+## Setting the working directory and assiging 
+setwd("C:/Users/Zachary/Desktop")
+activity <- read.csv(file="C:/Users/Zachary/Desktop/activity.csv")
+stepsPerDay <- tapply(activity$steps, activity$date, sum)
+
+## Creating the histogram 
+hist(stepsPerDay, xlab="Number of Steps", main="Histogram: Steps per Day")
+
+## Calculating the mean and median for the total number of steps taken
+meanPerDay <- mean(stepsPerDay, na.rm=TRUE)
+medianPerDay <- median(stepsPerDay, na.rm=TRUE)
