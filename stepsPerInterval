@@ -1,7 +1,7 @@
 # Question 2 - What is the average daily activity pattern?
 
 ##Make a time series plot of the 5-minute interval and the average number of steps taken, averaged across all dats
-stepsPerDay <- tapply(activity$steps, activity$date, sum)
+stepsPerInterval <- tapply(activity$steps, activity$date, sum)
 plot(as.numeric(names(stepsPerInterval)), stepsPerInterval, xlab="Interval", ylab="Steps", main="Average Daily Activity Pattern", type='l')
 
 ## Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
