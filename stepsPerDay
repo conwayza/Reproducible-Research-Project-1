@@ -1,20 +1,22 @@
-## Question 1
+# Question 1 - What is the mean total number of steps taken per day?
 
-## What is the mean total number of steps taken per day?
+## Calculate the total number of steps taken per day
 
-## Including all libraries needed 
+### Including all libraries needed 
 library(plyr)
 library(ggplot2)
 library(reshape)
-
-## Setting the working directory and assiging 
 setwd("C:/Users/Zachary/Desktop")
+
+## Load Activity Monitoring Data
 activity <- read.csv(file="C:/Users/Zachary/Desktop/activity.csv")
+
+## Calculate the total number of steps taken per day
 stepsPerDay <- tapply(activity$steps, activity$date, sum)
 
-## Creating the histogram 
+## Make a histogram of the total number of steps taken each day
 hist(stepsPerDay, xlab="Number of Steps", main="Histogram: Steps per Day")
 
-## Calculating the mean and median for the total number of steps taken
+## Calculate and report the mean and median of the total number of steps taken per day
 meanPerDay <- mean(stepsPerDay, na.rm=TRUE)
 medianPerDay <- median(stepsPerDay, na.rm=TRUE)
