@@ -1,3 +1,7 @@
+## Question 1
+
+## What is the mean total number of steps taken per day?
+
 ## Including all libraries needed 
 library(plyr)
 library(ggplot2)
