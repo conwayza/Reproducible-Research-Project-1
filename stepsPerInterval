@@ -1,6 +1,6 @@
 ## Question 2 
 
-## Make a time series plot of the 5-minute interval and the average number of steps taken, averaged across all days
+## What is the average daily activity pattern?
 
 ## Assigning information to variable to plot 
 stepsPerDay <- tapply(activity$steps, activity$date, sum)
